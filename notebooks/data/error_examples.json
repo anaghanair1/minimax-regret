@@ -1,0 +1,122 @@
+[
+  {
+    "code": "def greet(name):\n    if name == 'Alice'\n        return 'Hello, Alice!'\n    else:\n        return 'Hello, stranger!'",
+    "error_type": "SyntaxError",
+    "error_message": "SyntaxError: expected ':'",
+    "error_locations": [
+      [
+        2,
+        23
+      ]
+    ],
+    "fixed_code": "def greet(name):\n    if name == 'Alice':\n        return 'Hello, Alice!'\n    else:\n        return 'Hello, stranger!'"
+  },
+  {
+    "code": "def calculate_average(numbers):\n    total = 0\n    for num in numbers:\n        total += num\n    return total / len(numbers)",
+    "error_type": "ZeroDivisionError",
+    "error_message": "ZeroDivisionError: division by zero",
+    "error_locations": [
+      [
+        5,
+        11
+      ]
+    ],
+    "fixed_code": "def calculate_average(numbers):\n    if not numbers:\n        return 0\n    total = 0\n    for num in numbers:\n        total += num\n    return total / len(numbers)"
+  },
+  {
+    "code": "def get_last_item(items):\n    return items[len(items)]",
+    "error_type": "IndexError",
+    "error_message": "IndexError: list index out of range",
+    "error_locations": [
+      [
+        2,
+        11
+      ]
+    ],
+    "fixed_code": "def get_last_item(items):\n    if not items:\n        return None\n    return items[len(items) - 1]"
+  },
+  {
+    "code": "x = 10\ny = '20'\nresult = x + y",
+    "error_type": "TypeError",
+    "error_message": "TypeError: unsupported operand type(s) for +: 'int' and 'str'",
+    "error_locations": [
+      [
+        3,
+        8
+      ]
+    ],
+    "fixed_code": "x = 10\ny = '20'\nresult = x + int(y)  # Convert string to int"
+  },
+  {
+    "code": "def recursive_function(n):\n    if n <= 0:\n        return 1\n    return n * recursive_function(n-1)",
+    "error_type": "RecursionError",
+    "error_message": "RecursionError: maximum recursion depth exceeded",
+    "error_locations": [
+      [
+        4,
+        15
+      ]
+    ],
+    "fixed_code": "def recursive_function(n):\n    if n <= 0:\n        return 1\n    # Add a limit to prevent stack overflow\n    if n > 1000:\n        raise ValueError('Input too large, would cause recursion error')\n    return n * recursive_function(n-1)"
+  },
+  {
+    "code": "data = {'name': 'Alice', 'age': 30}\nprint(data['email'])",
+    "error_type": "KeyError",
+    "error_message": "KeyError: 'email'",
+    "error_locations": [
+      [
+        2,
+        11
+      ]
+    ],
+    "fixed_code": "data = {'name': 'Alice', 'age': 30}\nif 'email' in data:\n    print(data['email'])\nelse:\n    print('Email not found')"
+  },
+  {
+    "code": "import non_existent_module",
+    "error_type": "ModuleNotFoundError",
+    "error_message": "ModuleNotFoundError: No module named 'non_existent_module'",
+    "error_locations": [
+      [
+        1,
+        7
+      ]
+    ],
+    "fixed_code": "try:\n    import non_existent_module\nexcept ModuleNotFoundError:\n    print('Module not found, installing or using alternative...')\n    # Use alternative module or install the module"
+  },
+  {
+    "code": "x = [1, 2, 3]\ndel x\nprint(x)",
+    "error_type": "NameError",
+    "error_message": "NameError: name 'x' is not defined",
+    "error_locations": [
+      [
+        3,
+        6
+      ]
+    ],
+    "fixed_code": "x = [1, 2, 3]\nprint(x)  # Print before deletion\ndel x  # Move deletion after use"
+  },
+  {
+    "code": "def process_data():\n    data = get_data()\n    return analyze(data)",
+    "error_type": "NameError",
+    "error_message": "NameError: name 'get_data' is not defined",
+    "error_locations": [
+      [
+        2,
+        11
+      ]
+    ],
+    "fixed_code": "def get_data():\n    # Implementation of get_data\n    return [1, 2, 3]\n\ndef analyze(data):\n    # Implementation of analyze\n    return sum(data)\n\ndef process_data():\n    data = get_data()\n    return analyze(data)"
+  },
+  {
+    "code": "def divide(a, b):\n    return a / b\n\nresult = divide(10, 0)",
+    "error_type": "ZeroDivisionError",
+    "error_message": "ZeroDivisionError: division by zero",
+    "error_locations": [
+      [
+        2,
+        13
+      ]
+    ],
+    "fixed_code": "def divide(a, b):\n    if b == 0:\n        return 'Cannot divide by zero'\n    return a / b\n\nresult = divide(10, 0)"
+  }
+]
